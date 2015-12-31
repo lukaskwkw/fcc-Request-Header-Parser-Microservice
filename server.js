@@ -7,7 +7,7 @@ app.set('port',(process.env.PORT || 5000));
 app.get('/',function  (req,res) {
 	var sendBack = {
 
-ipaddress: req.connection.remoteAddressp,
+ipaddress: req.connection.remoteAddress,
 language: req.headers["accept-language"].match(/^.*?(?=,)/)[0],
 software: req.headers['user-agent'].match(/\((.*?)\)/)[1]
 	}
