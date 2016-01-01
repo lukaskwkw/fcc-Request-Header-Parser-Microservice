@@ -7,12 +7,10 @@ app.set('port',(process.env.PORT || 5000));
 app.get('/',function  (req,res) {
 	var sendBack = {
 
-ipaddress: req.connection.remoteAddress,
+ipaddress: req.headers["x-forwarded-for"],
 language: req.headers["accept-language"].match(/^.*?(?=,)/)[0],
 software: req.headers['user-agent'].match(/\((.*?)\)/)[1]
 	}
-	console.log(req.headers);
-	console.log(req.headers["X-Forwarded-For"]);
 	res.end(JSON.stringify(sendBack));
 })
 
