@@ -11,9 +11,11 @@ ipaddress: req.connection.remoteAddress,
 language: req.headers["accept-language"].match(/^.*?(?=,)/)[0],
 software: req.headers['user-agent'].match(/\((.*?)\)/)[1]
 	}
-	console.log(req.headers);
-	console.log(req);
-	console.log(req.headers["X-Forwarded-For"]);
+	// console.log(req.headers);
+	// console.log(req);
+	// console.log(req.headers["X-Forwarded-For"]);
+	res.end(JSON.stringify(req))
+	res.end(JSON.stringify(req.headers["X-Forwarded-For"]))
 	res.end(JSON.stringify(sendBack));
 })
 
